@@ -1,5 +1,28 @@
-//#include <Arduino.h>            //Pas besoin d'utiliser la librairie Arduino.h, visiblement elle est intégré dans la librairie DHTC3
-#include "Adafruit_SHTC3.h"       //On appelle la librairie SHTC3 d'Adafruit
+/*
+  SHTC3
+
+  Programme basique sur Arduino Mega 
+  Compileur : Visual Studio Code v1.95.3
+  IDE : PlatformIO v3.3.3
+
+  Programme fait par Adafruit
+  Modifié par Mathis BENOIT
+
+  Constituant : 
+    - Carte Arduino Mega 
+    - Module Adafruit Sensirion SHTC3
+
+  version  : 1.3
+  dernière modification : 12/12/2024
+
+
+*/
+
+
+#include <Arduino.h>            //Pas besoin d'utiliser la librairie Arduino.h, visiblement elle est intégré dans la librairie DHTC3
+#include <SPI.h>
+#include <Wire.h>
+#include "Adafruit_SHTC3.h"       //On appelle la librairie SHTC3 d'Adafruit (constructeur du module utilisé)
 
 Adafruit_SHTC3 shtc3 = Adafruit_SHTC3();       //On créer un objet de classe SHTC3 qui s'appelle SHTC3
 
@@ -28,5 +51,5 @@ void loop() {
   Serial.print("Humidity: "); Serial.print(humidity.relative_humidity);       //On affiche l'humidité relative
   Serial.println("% rH");
 
-  delay(1000);            //On refait une mesure toutes les 1 secondes
+  delay(1000);            //On attend 1s avant de refaire une mesure 
 }
